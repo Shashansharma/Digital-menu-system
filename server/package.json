@@ -1,0 +1,30 @@
+{
+  "name": "menudirect-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "lint": "echo 'No linter configured'",
+    "seed:images": "node scripts/seedImages.js",
+    "seed:images:force": "node scripts/seedImages.js --force",
+    "seed:demo": "node scripts/seedDemo.js",
+    "remove:menu": "node scripts/removeMenu.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1",
+    "morgan": "^1.10.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
