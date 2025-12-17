@@ -118,30 +118,46 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="how-it-works">
+      <section id="how-it-works" className="how-it-works">
         <div className="container-large">
-          <h2 className="section-title">How It Works</h2>
+          <div className="how-it-works-header">
+            <h2 className="section-title">How It Works</h2>
+            <p className="section-subtitle">Simple steps to enjoy a seamless dining experience</p>
+          </div>
           <div className="steps-container">
             <div className="step">
-              <div className="step-number">1</div>
+              <div className="step-number-circle">1</div>
+              <div className="step-icon">📱</div>
               <h3>Scan QR Code</h3>
               <p>Scan the QR code on your table to access the menu</p>
             </div>
-            <div className="step-arrow">→</div>
+            <div className="step-connector">
+              <div className="connector-line"></div>
+              <div className="connector-arrow">→</div>
+            </div>
             <div className="step">
-              <div className="step-number">2</div>
+              <div className="step-number-circle">2</div>
+              <div className="step-icon">📖</div>
               <h3>Browse Menu</h3>
               <p>Explore dishes and check real-time availability</p>
             </div>
-            <div className="step-arrow">→</div>
+            <div className="step-connector">
+              <div className="connector-line"></div>
+              <div className="connector-arrow">→</div>
+            </div>
             <div className="step">
-              <div className="step-number">3</div>
+              <div className="step-number-circle">3</div>
+              <div className="step-icon">🛒</div>
               <h3>Place Order</h3>
               <p>Add items and place your order instantly</p>
             </div>
-            <div className="step-arrow">→</div>
+            <div className="step-connector">
+              <div className="connector-line"></div>
+              <div className="connector-arrow">→</div>
+            </div>
             <div className="step">
-              <div className="step-number">4</div>
+              <div className="step-number-circle">4</div>
+              <div className="step-icon">🎉</div>
               <h3>Track & Enjoy</h3>
               <p>Track your order and enjoy your meal</p>
             </div>
