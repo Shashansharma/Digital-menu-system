@@ -125,23 +125,24 @@ export default function UserProfilePage() {
         </div>
       )}
 
-      {/* Profile Header */}
-      <div className="profile-header">
+      {/* Profile Header - Compact */}
+      <div className="profile-header-compact">
         <div className="profile-container">
-          <div className="profile-header-content">
-            <div className="profile-avatar">
+          <div className="profile-header-content-compact">
+            <div className="profile-avatar-compact">
               <span className="avatar-placeholder">
                 {formData.firstName?.charAt(0) || 'U'}
               </span>
             </div>
-            <div className="profile-info">
+            <div className="profile-info-compact">
               <h1>
                 {formData.firstName || 'Guest User'}
                 {formData.lastName && ` ${formData.lastName}`}
               </h1>
-              <p className="user-type">
+              <p className="user-type-compact">
                 {user?.type === 'manager' ? '👨‍💼 Manager Account' : '🍽️ Dining Guest'}
               </p>
+              <p className="user-email">{formData.email || 'Not provided'}</p>
             </div>
           </div>
         </div>
