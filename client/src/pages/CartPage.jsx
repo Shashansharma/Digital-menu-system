@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext.jsx';
-import { api } from '../api.js';
+import { api, ensureGuestToken } from '../api.js';
 
 export default function CartPage() {
   const { items, removeItem, clear, subtotal } = useCart();
@@ -14,6 +14,10 @@ export default function CartPage() {
     setPlacing(true);
     try {
       const tableNumber = Number(localStorage.getItem('tableNumber')) || 1;
+      
+      // Ensure guest token exists before placing order
+      await ensureGuestToken(tableNumber);
+      
       const payload = {
         tableNumber,
         items: items.map((it) => ({
