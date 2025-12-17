@@ -3,6 +3,8 @@ import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext.jsx';
 import { UserProvider } from './context/UserContext.jsx';
 import HomePage from './pages/HomePage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import SignUpPage from './pages/SignUpPage.jsx';
 import TableMenuPage from './pages/TableMenuPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import OrderStatusPage from './pages/OrderStatusPage.jsx';
@@ -25,6 +27,10 @@ export default function App() {
         </header>
         <main className="container">
           <Routes>
+            {/* Auth */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+
             {/* Home page */}
             <Route path="/" element={<HomePage />} />
 

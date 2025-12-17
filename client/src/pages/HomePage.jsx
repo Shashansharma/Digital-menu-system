@@ -224,6 +224,12 @@ export default function HomePage() {
                 Try Demo (Table 1)
               </button>
             )}
+            <Link to="/login" className="button outline large">
+              Sign In
+            </Link>
+            <Link to="/signup" className="button outline large">
+              Sign Up
+            </Link>
             <Link to="/manager" className="button outline large">
               Manager Portal
             </Link>
