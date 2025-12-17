@@ -14,9 +14,12 @@ export default function CartPage() {
     setPlacing(true);
     try {
       const tableNumber = Number(localStorage.getItem('tableNumber')) || 1;
+      console.log('[Order] Table Number:', tableNumber);
       
       // Ensure guest token exists before placing order
+      console.log('[Order] Calling ensureGuestToken...');
       await ensureGuestToken(tableNumber);
+      console.log('[Order] Token ensured, token in storage:', !!localStorage.getItem('token'));
       
       const payload = {
         tableNumber,
@@ -26,12 +29,18 @@ export default function CartPage() {
           customizations: it.customizations || [],
         })),
       };
+      console.log('[Order] Payload:', payload);
+      console.log('[Order] Sending order request...');
+      
       const order = await api('/orders', { method: 'POST', auth: true, body: payload });
+      console.log('[Order] Order created:', order);
+      
       clear();
       navigate(`/order/${order._id}`);
     } catch (e) {
-      setError('Failed to place order');
-      console.error(e);
+      console.error('[Order] Error:', e);
+      console.error('[Order] Error message:', e.message);
+      setError(`Failed to place order: ${e.message}`);
     } finally {
       setPlacing(false);
     }
