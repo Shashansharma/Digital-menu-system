@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext.jsx';
 import { UserProvider } from './context/UserContext.jsx';
+import Header from './components/Header.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SignUpPage from './pages/SignUpPage.jsx';
@@ -16,15 +17,7 @@ export default function App() {
   return (
     <UserProvider>
       <CartProvider>
-        <header className="site-header">
-          <div className="site-header-inner">
-            <Link to="/" className="brand">MenuDirect</Link>
-            <nav className="row">
-              <Link to="/profile" title="User Profile">👤</Link>
-              <Link to="/manager">Manager</Link>
-            </nav>
-          </div>
-        </header>
+        <Header />
         <main className="container">
           <Routes>
             {/* Auth */}
