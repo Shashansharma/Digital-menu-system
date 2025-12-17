@@ -114,32 +114,30 @@ export default function Header() {
             </Link>
 
             {/* User Menu */}
-            <div className="nav-item dropdown user-menu">
+            <div 
+              className="nav-item dropdown user-menu"
+              onMouseEnter={() => setShowUserMenu(true)}
+              onMouseLeave={() => setShowUserMenu(false)}
+            >
               <button
                 className="nav-link user-profile"
-                onMouseEnter={() => setShowUserMenu(true)}
-                onMouseLeave={() => setShowUserMenu(false)}
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 title="User Profile"
               >
                 👤
-                <span className="dropdown-arrow">▼</span>
+                <span className={`dropdown-arrow ${showUserMenu ? 'open' : ''}`}>▼</span>
               </button>
 
               {showUserMenu && (
-                <div
-                  className="user-dropdown-menu"
-                  onMouseEnter={() => setShowUserMenu(true)}
-                  onMouseLeave={() => setShowUserMenu(false)}
-                >
-                  <Link to="/profile" className="dropdown-item">
+                <div className="user-dropdown-menu">
+                  <Link to="/profile" className="dropdown-item" onClick={() => setShowUserMenu(false)}>
                     👤 Profile
                   </Link>
-                  <Link to="/manager" className="dropdown-item">
+                  <Link to="/manager" className="dropdown-item" onClick={() => setShowUserMenu(false)}>
                     📊 Manager Dashboard
                   </Link>
                   <div className="dropdown-divider"></div>
-                  <button className="dropdown-item logout-item">
+                  <button className="dropdown-item logout-item" onClick={() => setShowUserMenu(false)}>
                     🚪 Logout
                   </button>
                 </div>
