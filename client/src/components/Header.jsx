@@ -52,23 +52,21 @@ export default function Header() {
 
         <nav className="header-nav">
           {/* Features Dropdown */}
-          <div className="nav-item dropdown">
+          <div 
+            className="nav-item dropdown features-dropdown"
+            onMouseEnter={() => setShowFeaturesMenu(true)}
+            onMouseLeave={() => setShowFeaturesMenu(false)}
+          >
             <button
               className="nav-link features-trigger"
-              onMouseEnter={() => setShowFeaturesMenu(true)}
-              onMouseLeave={() => setShowFeaturesMenu(false)}
               onClick={() => setShowFeaturesMenu(!showFeaturesMenu)}
             >
               Features
-              <span className="dropdown-arrow">▼</span>
+              <span className={`dropdown-arrow ${showFeaturesMenu ? 'open' : ''}`}>▼</span>
             </button>
 
             {showFeaturesMenu && (
-              <div
-                className="features-menu"
-                onMouseEnter={() => setShowFeaturesMenu(true)}
-                onMouseLeave={() => setShowFeaturesMenu(false)}
-              >
+              <div className="features-menu">
                 <div className="features-grid">
                   {features.map((feature, index) => (
                     <Link
